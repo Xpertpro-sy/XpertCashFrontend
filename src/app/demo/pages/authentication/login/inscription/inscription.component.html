@@ -1,0 +1,164 @@
+<div class="container_global">
+    <div class="container_global_content">
+        <!--=========================== NAVIGATION ===========================-->
+        <header class="navbar">
+            <nav id="nav">
+                <!--========= LOGO ========-->
+                <div class="logo">
+                    <h2>Xpert<span>Cash</span></h2>
+                </div>
+                <section class="nav-menu" id="nav-menu">
+                    
+                    <!--========= LIST ========-->
+                        <ul class="nav-list">
+                            <li class="nav-items"><a class="nav__link">Se connecter</a></li>
+                        
+                    <!--========= NEMU-BARS-CLOSE ========-->
+                            <li class="menu-close" id="menu-close">
+                                <i class="fas fa-xmark"></i>
+                            </li>
+                        </ul>
+        
+                </section>
+            
+                <!--========= NEMU-BARS-TOGGLE ========-->
+                <div class="menu-bars" id="menu-bars">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </header>
+    
+        <!-- Page -->
+        <div class="content_page">
+            <section class="welcome">
+                <h2>Bienvenue chez <span>XpertCash</span></h2>
+                <p>Saisis vos information pour être de la famille</p>
+            </section>
+
+            <section class="formulaire_img">
+                <div class="info_form_left">
+                    <form [formGroup]="registerForm" (ngSubmit)="submitForm()">
+                        <div class="title_form">
+                          <h2>Inscription</h2>
+                        </div>
+                      
+                        <div class="formulaire">
+                          <!-- Nom complet -->
+                          <div class="champ_input">
+                            <input type="text" formControlName="nomComplet" class="input_focus" placeholder="Saisis votre nom">
+                            <label class="label">Nom complet</label>
+                            <div *ngIf="f['nomComplet'].touched && f['nomComplet'].invalid" class="error-message">
+                              Le nom complet est vide.
+                            </div>
+                          </div>
+                      
+                          <!-- Nom entreprise et email -->
+                          <div class="double_input">
+                            <div class="afficheEntreprise">
+                              <div class="champ_input">
+                                <input type="text" formControlName="nomEntreprise" class="input_focus" placeholder="Votre nom entreprise" (input)="updateEntrepriseName($event)">
+                                <label class="label">Nom entreprise</label>
+                                <div *ngIf="f['nomEntreprise'].touched && f['nomEntreprise'].invalid" class="error-message">
+                                    Le nom entreprise est vide.
+                                  </div>
+                              </div>
+                              <p class="entreprseDomaine">
+                                {{ entrepriseName }}<span class="entreprseDomaineSite">.xpertcash.com</span>
+                              </p>
+                            </div>
+                      
+                            <div class="champ_input champ_input_margin">
+                                <input type="email" formControlName="email" class="input_focus" placeholder="Saisis votre email">
+                                <label class="label">Votre email</label>
+                                <div *ngIf="f['email'].touched && f['email'].invalid" class="error-message">
+                                  <span *ngIf="f['email'].errors?.['required']">Email est vide.</span>
+                                  <span *ngIf="f['email'].errors?.['email']">Email n'est pas valide.</span>
+                                </div>
+                            </div>
+                          </div>
+                      
+                          <!-- Pays et téléphone -->
+                          <div class="double_input" style="margin-top: 30px;">
+                            <div class="champ_input">
+                              <select formControlName="pays" class="input_focus" required>
+                                <option value="" disabled selected>Pays</option>
+                                <option value="Mali">Mali</option>
+                                <option value="Senegal">Sénégal</option>
+                                <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+                              </select>
+                              <div *ngIf="f['pays'].touched && f['pays'].invalid" class="error-message">
+                                Le pays est vide.
+                              </div>
+                            </div>
+                      
+                            <!-- Téléphone -->
+                            <div class="champ_input champ_input_margin">
+                                <input type="text" formControlName="phone" class="input_focus" placeholder="00 00 00 00">
+                                <label class="label">Numero téléphone</label>
+                                <div *ngIf="f['phone'].touched && f['phone'].invalid" class="error-message">
+                                    <span *ngIf="f['phone'].errors?.['required']">Le numéro de téléphone est vide.</span>
+                                    <span *ngIf="f['phone'].errors?.['minlength']">Au moins 8 caractères.</span>
+                                </div>
+                            </div>
+                          </div>
+                      
+                          <!-- Mot de passe et confirmation -->
+                          <div class="double_input">
+                            <div class="champ_input">
+                                <input type="password" formControlName="password" class="input_focus" placeholder="****************">
+                                <label class="label">Mot de passe</label>
+                                <div *ngIf="f['password'].touched && f['password'].invalid" class="error-message">
+                                    <span *ngIf="f['password'].errors?.['required']">Mot de passe est vide.</span>
+                                    <span *ngIf="f['password'].errors?.['minlength']">Au moins 8 caractères.</span>
+                                </div>
+                                </div>
+                        
+                                <div class="champ_input champ_input_margin">
+                                <input type="password" formControlName="confirmPassword" class="input_focus" placeholder="****************">
+                                <label class="label">Confirmation</label>
+                                <div *ngIf="f['confirmPassword'].touched && f['confirmPassword'].invalid" class="error-message">
+                                    <span *ngIf="f['confirmPassword'].errors?.['required']">Confirmation est vide.</span>
+                                    <span *ngIf="f['confirmPassword'].errors?.['mismatch']">Les mots de passe ne correspondent pas.</span>
+                                </div>
+                            </div>
+                          </div>
+                      
+                          <!-- Message d'erreur global -->
+                          <div *ngIf="errorMessage" class="error-message">
+                            {{ errorMessage }}
+                          </div>
+                      
+                          <!-- Bouton de soumission -->
+                          <div class="btn_contact">
+                            <button type="submit">Continuer</button>
+                          </div>
+                        </div>
+
+                        <!-- Popup de confirmation / d'erreur -->
+                        <div class="modal-overlay" *ngIf="showPopup">
+                            <div class="modal-content" [ngClass]="{'error': popupType === 'error'}">
+                              <div class="popup-header">
+                                <div class="popup-img">
+                                    <img [src]="popupImage" alt="Icone" class="popup-icon">
+                                </div>
+                                <h2>{{ popupTitle }}</h2>
+                              </div>
+                              <p>{{ popupMessage }}</p>
+                              <button (click)="closePopup()">OK</button>
+                            </div>
+                        </div>
+                        
+  
+                      </form>                
+                </div>
+
+                <div class="info_form_right">
+                    <div class="image_header">
+                        <img src="assets/img/logout_img.png" alt="">
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+</div>

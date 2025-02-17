@@ -1,0 +1,424 @@
+.container_global{
+    background-color: #ffffff;
+    height: 90vh;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.075);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    //background-color: #fff1eb;
+    background-color: #0672E4;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 9999999999;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+#nav {
+    position: fixed;
+    width: 100%;
+}
+
+.menu-bars,
+.menu-close
+{
+    color: #141414e0;
+    display: none;
+}
+
+.logo h2{
+    color: #fff;
+    font-size: 20px;
+    margin-left: 30px;
+}
+
+.logos span{
+    display: none;
+}
+
+.logo span{
+    color: #E9D421;
+    border-radius: 50%;
+    //padding: 5px 7px;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.nav-list{
+    display: flex;
+    position: relative;
+    top: 10px;
+}
+
+.nav-items{
+    list-style-type: none;
+    padding: 10px 20px;
+}
+
+.nav__link{
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.nav__link:hover{
+    color: #E9D421;
+    transition: all ease-in-out .5s;
+}
+
+// Style users login
+
+.loginDrop {
+    margin-right: 40px;
+}
+
+/* From Uiverse.io by devkatyall */ 
+/* The design is inspired from Galahhad*/
+
+/* From Uiverse.io by Galahhad */ 
+/* radio settings 👇 */
+
+.theme-popup {
+  /* total */
+  --total_text_color: #e0e0e0;
+  --total_font_family: Menlo, Roboto Mono, monospace;
+  /* button */
+  --btn_bg: #0672E4;
+  --btn_padding: 0.5em;
+  --btn_height: 2em;
+  --btn_border_radius: 0.3125em;
+  --btn_outline_width: 0.0625em;
+  --btn_outline_color: #A0A0A0;
+  --btn_outline_offset: 0.0625em;
+  --btn_gap: 0.3125em;
+  /* list */
+  --list_padding: 0.5em;
+  --list_bg: var(--btn_bg);
+  --list_border_radius: var(--btn_border_radius);
+  --list_gap: 0.1875em;
+  --list_btn_hover_bg: #5A5656;
+  --list_btn_active: #b9b9b970;
+  --list_btn_border_radius: 0.25em;
+  --list_btn_padding: 0.35em 1em;
+  --list_btn_gap: 0.4375em;
+  --list_btn_outline_width: 0.0625em;
+  --list_btn_outline_color: rgb(212, 210, 210);
+  --list_offset: 0.35em;
+  --list_btn_font_size: 14px;
+  --list_position_left: 0;
+  --list_position_right: unset;
+  /* 👆 if you want to change sides just switch one property */
+  /* from properties to "unset" and the other to 0 */
+}
+
+.theme-popup__button .theme-popup__icons svg,
+#light,
+#dark, 
+#default, 
+#checkbox,
+.theme-popup__list-container {
+  display: none;
+}
+
+.theme-popup {
+  color: var(--total_text_color);
+  font-family: var(--total_font_family);
+  position: relative;
+  user-select: none;
+}
+
+.theme-popup__list-container {
+  position: absolute;
+  left: var(--list_position_left);
+  right: var(--list_position_right);
+  top: calc(var(--btn_height) + var(--list_offset));
+}
+
+.theme-popup__icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+}
+
+.theme-popup__button {
+  line-height: var(--btn_height);
+  //background-color: var(--btn_bg);
+  padding: 0 var(--btn_padding);
+  display: inline-flex;
+  align-items: center;
+  column-gap: var(--btn_gap);
+  border-radius: var(--btn_border_radius);
+  border: none;
+  color: #ffffff;
+  font-family: inherit;
+  outline: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.theme-popup__list {
+  margin: 0;
+  list-style-type: none;
+  padding: var(--list_padding);
+  border-radius: var(--list_border_radius);
+  background-color: var(--list_bg);
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--list_gap);
+}
+
+.theme-popup__list label {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  column-gap: var(--list_btn_gap);
+  padding: var(--list_btn_padding);
+  border-radius: var(--list_btn_border_radius);
+  white-space: nowrap;
+  cursor: pointer;
+  color: #d2d2d2;
+}
+
+.theme-popup__list label span {
+  font-size: var(--list_btn_font_size);
+}
+
+/* actions */
+
+#checkbox:checked~.theme-popup__button {
+  outline: var(--btn_outline_width) solid var(--btn_outline_color);
+  outline-offset: var(--btn_outline_offset);
+}
+
+#checkbox:checked~.theme-popup__list-container {
+  display: block;
+}
+
+.theme-popup__button:hover,
+#checkbox:checked~.theme-popup__button {
+  //background-color: var(--list_btn_hover_bg);
+  color: #E9D421;
+  transition: all ease .5s;
+}
+
+.theme-popup__list label:hover {
+  color: #ffffff;
+}
+
+#default:checked~.theme-popup__list-container label[for="default"],
+#light:checked~.theme-popup__list-container label[for="light"],
+#dark:checked~.theme-popup__list-container label[for="dark"] {
+  background-color: var(--list_btn_active);
+  outline: var(--list_btn_outline_width) solid var(--list_btn_outline_color);
+}
+
+#default:checked~label svg.default,
+#light:checked~label svg.sun,
+#dark:checked~label svg.moon {
+  display: block;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(38, 38, 38, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.content_popup {
+  //width: 60%;
+  //height: 55%;
+  background: #fff;
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.popup {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.popup.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.close-btn {
+  cursor: pointer;
+  background: rgba(103, 103, 103, 0.094);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  float: right;
+  border: 1px solid rgba(103, 103, 103, 0.094);
+}
+
+.closeBTN i {
+  color: red;
+}
+
+
+/* formulaire */
+
+
+.formulaire {
+  margin-top: 20px;
+}
+
+.champ_input {
+  position: relative;
+}
+
+.inpuemail {
+  margin-top: 30px;
+}
+
+.input_focus {
+  width: 100%;
+  min-width: 300px;
+  height: 49px;
+  outline: none;
+  border-bottom: 1px solid #bcbcbc;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  margin: 5px 0px;
+  transition: all 0.3s;
+  font-size: 16px;
+  padding-left: 10px;
+  background: none;
+  color: #000;
+}
+
+
+.input_focus:hover {
+  border-bottom: 1px solid #0672E4;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.afficheEntreprise {
+  position: relative;
+}
+
+.entreprseDomaine {
+  position: absolute;
+  bottom: -35px;
+  left: 5px;
+  font-size: 12px;
+}
+
+.entreprseDomaineSite {
+  color: #0672E4;
+}
+
+.champ_input .label {
+  position: absolute;
+  top: 22px;
+  left: 10px;
+  pointer-events: none;
+  color: 000;
+}
+
+.input_focus:not(:placeholder-shown) + .label,
+.input_focus:focus + .label {
+  color: #0672E4;
+  top: -6px;
+  left: 0;
+  transition: all 0.3s ease-in-out;
+  background: none;
+  font-size: 13px;
+  padding: 0;
+}
+
+.input_focus::placeholder {
+  opacity: 0;
+}
+
+.input_focus:focus::placeholder {
+  opacity: 1;
+  animation-delay: 1s;
+  font-size: 15px;
+  transition: all 0.2s ease-in-out;
+}
+
+.double_input {
+  display: flex;
+  align-items: center;
+  //justify-content: space-between;
+  margin-top: 20px;
+}
+
+
+.icon_reseau_contact {
+  margin-top: 40px;
+}
+
+
+.icon_reseau_contact a:hover {
+  background-color: #ffffff2c;
+}
+
+.btn_contact {
+  position: relative;
+  margin-top: 25px;
+  background: none;
+  margin-bottom: 20px;
+}
+
+.btn_contact button {
+  padding: 10px 40px 10px 25px;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: none;
+  background-color: #0671e4c5;
+  color: #fff;
+  transition: all 0.3s;
+  position: relative;
+  width: 100%;
+}
+
+.btn_contact button:hover {
+  background-color: #0672E4
+}
+
+.champ_input_margin {
+  margin-left: 30px;
+}
+
+.title_form p{
+  text-align: center;
+  font-size: 18px;
+}
+
+.champ_input_login {
+  margin-top: 5px;
+}
+
+.resetPassword {
+  text-decoration: underline;
+  color: #0672E4;
+}
+
+.resetPassword p{
+  font-size: 10px;
+  text-decoration: underline;
+  color: #0672E4;
+  cursor: pointer;
+}

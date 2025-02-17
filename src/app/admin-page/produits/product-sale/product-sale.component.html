@@ -1,0 +1,45 @@
+<ng-scrollbar style="height: 362px" visibility="hover" track="all">
+  <table class="table table-hover m-b-0 mt-3">
+    <thead>
+      <tr>
+        <th>Code</th>
+        <th>Désignation</th>
+        <th>Stock Mini</th>
+        <th>Stock Initial</th>
+        <th>Entrée</th>
+        <th>Sortie</th>
+        <th>Alerte Stock</th>
+        <th>Stock Final</th>
+        <th>P.U.</th>
+        <th>Valeur du Stock (FCFA)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of fullProductList">
+        <td>{{ product.id }}</td>
+        <td>{{ product.designation }}</td>
+        <td>{{ product.stockMini }}</td>
+        <td>{{ product.stockInitial }}</td>
+        <td>{{ product.entree }}</td>
+        <td>{{ product.sortie }}</td>
+        
+        <td>
+          <div class="stock-bar-container">
+            <div 
+              class="stock-bar" 
+              [ngStyle]="{ 
+                'width': getStockBarWidth(product),
+                'background-color': getStockBarColor(product)
+              }">
+            </div>
+          </div>
+        </td>
+        
+        
+        <td>{{ product.stockFinal }}</td>
+        <td>{{ product.pu }}</td>
+        <td>{{ product.valeurStock }}</td>
+      </tr>
+    </tbody>
+  </table>
+</ng-scrollbar>

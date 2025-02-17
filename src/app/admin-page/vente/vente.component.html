@@ -1,0 +1,70 @@
+<div class="containerTable">
+    <div class="tasks-header">
+        <h1 class="title">Ventes</h1>
+        
+        <div class="actions">
+          <button class="add-task">Ajouter un ???</button>
+          <!--Mes icon-->
+          <div class="contentIcon">
+            <i class="ri-refresh-line"></i>
+            <div class="bare"></div>
+            <div class="export-container">
+              <!-- Icône d'exportation avec un clic -->
+              <div class="iconDrop">
+                <i class="ri-printer-cloud-line" (click)="toggleExportDropdown()"></i>
+              </div>
+              <!-- Dropdown avec *ngIf pour l'affichage conditionnel -->
+              <div class="export-dropdown" *ngIf="showExportDropdown">
+                <div class="export-option" (click)="downloadExcel()">Télécharger en Excel</div>
+                <div class="export-option" (click)="downloadPDF()">Télécharger en PDF</div>
+                <div class="export-option" (click)="downloadCSV()">Télécharger en CSV</div>
+              </div>
+            </div>
+          </div>
+          <!--Les recherche-->
+          <div class="inputSearch">
+            <i class="ri-search-2-line"></i>
+            <input type="text" [(ngModel)]="searchText" placeholder="Recherche...." />
+          </div>
+        </div>
+    </div>
+      
+    <!-- Tableau des tâches -->
+    <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Date & heure <i class="icon-sort"></i></th>
+        <th>Categories <i class="icon-sort"></i></th>
+        <th>Journalier <i class="icon-sort"></i></th>
+        <th>Nom du produit <i class="icon-sort"></i></th>
+        <th>Quantité <i class="icon-sort"></i></th>
+        <th>Quantité prix <i class="icon-sort"></i></th>
+        <th>Prix unitaire <i class="icon-sort"></i></th>
+        <th>Prix Total <i class="icon-sort"></i></th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <!-- Utilisation du *ngFor pour afficher les éléments filtrés -->
+      <tr *ngFor="let task of filteredTasks()">
+        <td>{{ tasks.indexOf(task) + 1 }}</td>
+        <td>{{ task.DateHeure }}</td>
+        <td [innerHTML]="highlightMatch(task.Category)"></td> 
+        <td>{{ task.Journalier }}</td>
+        <td [innerHTML]="highlightMatch(task.NomDuProduit)"></td> 
+        <td>{{ task.Quantite }}</td>
+        <td>{{ task.QuantitePrix }}</td>
+        <td>{{ task.PrixUnitaire }}</td>
+        <td>{{ task.PrixTotal }}</td>
+      </tr>
+    </tbody>
+    </table>
+  
+    <!-- Message si aucun résultat -->
+    <div *ngIf="filteredTasks().length === 0" style="text-align: center; margin-top: 20px;">
+        <p style="color: red;">Aucun résultat trouvé pour "{{ searchText }}"</p>
+    </div>
+      
+</div>
+

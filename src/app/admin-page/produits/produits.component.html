@@ -1,0 +1,43 @@
+<div *ngIf="toastMessage" class="toast-container {{ toastType }}">
+  {{ toastMessage }}
+</div>
+
+
+<div class="containerProduit">
+    <div class="contentProduit">
+      <div class="tab-card tab-content">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h5 class="nameProduit">Produits Stocks</h5>
+          <button class="btn-add-produit" (click)="toggleForm()">Ajouter un produit</button>
+        </div>
+        
+        <div class="table-responsive">
+          <app-product-sale [productList]="productList"></app-product-sale>
+        </div>
+      </div>
+    </div>
+</div>
+  
+  <!-- FORMULAIRE D'AJOUT -->
+  <div class="form-overlay" *ngIf="showForm">
+    <div class="form-container">
+      <h2>Ajouter un Produit</h2>
+  
+      <label>Désignation :</label>
+      <input type="text" [(ngModel)]="newProduct.designation">
+  
+      <label>Stock Initial :</label>
+      <input type="number" [(ngModel)]="newProduct.stockInitial">
+  
+      <label>Stock Mini :</label>
+      <input type="number" [(ngModel)]="newProduct.stockMini">
+  
+      <label>Prix Unitaire :</label>
+      <input type="number" [(ngModel)]="newProduct.pu">
+  
+      <button class="btn-primary" (click)="addProduct()">Ajouter</button>
+      <button class="btn-secondary" (click)="toggleForm()">Annuler</button>
+
+    </div>
+  </div>
+  

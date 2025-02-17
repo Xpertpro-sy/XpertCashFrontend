@@ -1,0 +1,194 @@
+<div class="container_global">
+    <div class="content">
+        <!--=========================== NAVIGATION ===========================-->
+        <header class="navbar">
+        <nav id="nav">
+            <!--========= LOGO ========-->
+            <div class="logo">
+                <h2>Xpert<span>Cash</span></h2>
+            </div>
+            <section class="nav-menu" id="nav-menu">
+                
+                <!--========= LIST ========-->
+                    <ul class="nav-list">
+                        <li class="nav-items"><a href="#acc" class="nav__link">Accueil</a></li>
+                        <li class="nav-items"><a href="#apro" class="nav__link">A propos</a></li>
+                        <li class="nav-items"><a href="#ser" class="nav__link">Services</a></li>
+                        <li class="nav-items"><a href="#con" class="nav__link">Contact</a></li>
+                    
+                <!--========= NEMU-BARS-CLOSE ========-->
+                        <li class="menu-close" id="menu-close">
+                            <i class="fas fa-xmark"></i>
+                        </li>
+                    </ul>
+    
+            </section>
+
+            <!--Section pour la conne -->
+            <section class="loginDrop">
+                <!-- From Uiverse.io by devkatyall --> 
+                <!-- From Uiverse.io by Galahhad --> 
+                <div class="theme-popup">
+                    <input type="radio" name="theme" id="default" checked="">
+                    <input type="checkbox" id="checkbox">
+                    <label for="checkbox" class="theme-popup__button">
+                        Identification
+                    </label>
+                    <div class="theme-popup__list-container">
+                        <ul class="theme-popup__list">
+                        <li style="border-bottom: 1px solid #86868683;">
+                        
+                            <label id="openPopupLogin">
+                                <span>Connexion</span>
+                            </label>
+                        </li>
+                        <li routerLink="/inscription">
+                            <label>
+                                <span>Inscription</span>
+                            </label>
+                        </li>
+                        </ul>
+                    </div>
+                </div> 
+                
+            </section>
+        
+            <!--========= NEMU-BARS-TOGGLE ========-->
+                <div class="menu-bars" id="menu-bars">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        
+        </header>
+    </div>
+</div>
+
+<!-- POPUP INSCRIPTION -->
+<div class="popup-overlay" id="popupOverlay">
+    <div class="content_popup">
+        <div class="popup" id="popup">
+            <div class="closeBTN">
+                <p class="close-btn" id="closePopup">
+                    <i class="ri-close-large-line"></i>
+                </p>
+            </div>
+            <div class="info_user">
+                <form class="container_formulaire" id="myForm" onsubmit="sendEmail(); return false;">
+
+                    <div class="title_form">
+                        <h2>Inscription</h2>
+                    </div>
+                    
+                    <div class="formulaire">
+                    
+                        <div class="champ_input">
+                            <input type="text" class="input_focus" required id="nom"
+                                placeholder="Saisis votre nom">
+                            <label for="nom" class="label">Nom complet</label>
+                        </div>
+
+                        <div class="double_input">
+
+                            <div class="afficheEntreprise">
+                                <div class="champ_input">
+                                  <input type="text"
+                                         class="input_focus"
+                                         required
+                                         id="nomEntreprise"
+                                         placeholder="Votre nom entreprise"
+                                         (input)="updateEntrepriseName($event)">
+                                  <label for="nom" class="label">Nom entreprise</label>
+                                </div>
+                                <p class="entreprseDomaine">
+                                    {{ entrepriseName | lowercase }}<span class="entreprseDomaineSite">.xpertcash.com</span>
+                                </p>
+                              </div>                                                                    
+
+                            <div class="champ_input champ_input_margin">
+                                <input type="phone" class="input_focus" required id="phone"
+                                    placeholder="00 00 00 00">
+                                <label for="nom" class="label">Numero de téléphone</label>
+                            </div>
+
+                        </div>
+
+                        <div class="champ_input inpuemail">
+                            <input type="email" class="input_focus" required id="email"
+                                placeholder="Saisis votre email">
+                            <label for="nom" class="label">Votre email</label>
+                        </div>
+
+                        <div class="double_input">
+
+                            <div class="champ_input">
+                                <input type="password" class="input_focus" required id="password"
+                                    placeholder="****************">
+                                <label for="nom" class="label">Mot de passe</label>
+                            </div>
+
+                            <div class="champ_input champ_input_margin">
+                                <input type="password" class="input_focus" required id="confirmPassword"
+                                    placeholder="****************">
+                                <label for="nom" class="label">Confirmation</label>
+                            </div>
+
+                        </div>
+
+                        <div class="btn_contact">
+                            <button type="submit" onclick="submitForm()">
+                                Continuer
+                            </button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- POPUP CONNEXION -->
+<div class="popup-overlay" id="popupOverlayLogin">
+    <div class="content_popup">
+        <div class="popup" id="popupLogin">
+            <div class="closeBTN">
+                <p class="close-btn" id="closePopupLogin">
+                    <i class="ri-close-large-line"></i>
+                </p>
+            </div>
+            <div class="info_user">
+                <form class="container_formulaire" id="loginForm" onsubmit="loginUser(); return false;">
+                    <div class="title_form">
+                        <h2>Connexion</h2>
+                    </div>
+                    
+                    <div class="formulaire">
+                        <div class="champ_input">
+                            <input type="email" class="input_focus" required id="loginEmail"
+                                placeholder="Saisis votre email">
+                            <label for="loginEmail" class="label">Votre email</label>
+                        </div>
+
+                        <div class="champ_input champ_input_login">
+                            <input type="password" class="input_focus" required id="loginPassword"
+                                placeholder="****************">
+                            <label for="loginPassword" class="label">Mot de passe</label>
+                        </div>
+
+                        <div class="resetPassword">
+                            <p>
+                                <a>Mot de passe oublié</a>
+                            </p>
+                        </div>
+
+                        <div class="btn_contact">
+                            <button type="submit" onclick="submitLoginForm()">
+                                Connexion
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
