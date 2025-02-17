@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, HostListener } from '@angular/core';
 
 
@@ -6,7 +6,7 @@ import * as XLSX from 'xlsx';
 import { jsPDF } from "jspdf";
 import "jspdf-autotable";
 import { FormsModule } from '@angular/forms';
-
+import { CommonModule } from '@angular/common';
 
 
 @Component({
@@ -18,7 +18,7 @@ import { FormsModule } from '@angular/forms';
 export class VenteComponent {
   searchText: string = '';
   tasks = [
-    { DateHeure: '04-02-2025 à 18:00', Category: 'Alimentation', Journalier: 'nmbrevente/j', NomDuProduit: 'L\'eau', Quantite: '300', QuantitePrix: 'Facture des ventes', PrixUnitaire: '200', PrixTotal: '60 000' },
+    { DateHeure: '04-02-2025 à 18:00', Category: 'Alimentationn', Journalier: 'nmbrevente/j', NomDuProduit: 'L\'eau', Quantite: '300', QuantitePrix: 'Facture des ventes', PrixUnitaire: '200', PrixTotal: '60 000' },
     { DateHeure: '05-02-2025 à 14:00', Category: 'Alimentation', Journalier: 'nmbrevente/j', NomDuProduit: 'L\'eau', Quantite: '300', QuantitePrix: 'Facture des ventes', PrixUnitaire: '200', PrixTotal: '60 000' },
     { DateHeure: '06-02-2025 10:00', Category: 'Électronique', Journalier: 'Oui', NomDuProduit: 'Téléphone', Quantite: 2, QuantitePrix: 400, PrixUnitaire: 200, PrixTotal: 400 },
     { DateHeure: '06-02-2025 12:30', Category: 'Vêtements', Journalier: 'Non', NomDuProduit: 'T-shirt', Quantite: 5, QuantitePrix: 100, PrixUnitaire: 20, PrixTotal: 100 },
